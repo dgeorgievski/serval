@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - testing.3bunara.xyz
+  resources:
+  - perftests
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - testing.3bunara.xyz
+  resources:
+  - perftests/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - testing.3bunara.xyz
+  resources:
+  - perftests/status
+  verbs:
+  - get
+  - patch
+  - update
